@@ -1,31 +1,27 @@
-const numeroUm = Number(prompt("Digite o primeiro numero: "))
-const numeroDois = Number(prompt("Digite o segundo numero: "))
+const pontoDeCorte = 7
+const estudantes = [
+    {
+        nome: "Diogo Mendes",
+        nota1: 8,
+        nota2: 8
+    },
+    {
+        nome: "Thaeme",
+        nota1: 7,
+        nota2: 7
+    },
+    {
+        nome: "Sabrina",
+        nota1: 7,
+        nota2: 6
+    }
+]
 
-const soma = numeroUm + numeroDois
-const subtracao = numeroUm - numeroDois
-const multipicacao = numeroUm * numeroDois
-const divisao = numeroUm / numeroDois
-const resto = numeroUm % numeroDois
+const media = (nota1, nota2) => ((nota1 + nota2) / 2).toFixed(2)
 
-let par
-let iguais
-
-if (soma % 2 == 0) {
-    par = true
-} else {
-    par = false
+for (const estudante of estudantes) {
+    let mediaFinal = media(estudante.nota1, estudante.nota2)
+    const passou = mediaFinal >= pontoDeCorte ? 'Parabens, passou de ano' : 'Que pena, de vejo no posso ano'
+    alert(`O aluno ${estudante.nome} tem a seguinte media ${mediaFinal}
+    ${passou}`)
 }
-
-if (numeroUm === numeroDois) {
-    iguais = true
-} else {
-    iguais = false
-}
-
-alert(`A soma é ${soma}`)
-alert(`A subtracao é ${subtracao}`)
-alert(`A multiplicacao é ${multipicacao}`)
-alert(`A divisao é ${divisao}`)
-alert(`O resto é ${resto}`)
-alert(par ? `A soma é par` : `A soma e impar`)
-alert(iguais ? `Os numeros são iguais` : `Os numeros são diferente`)
